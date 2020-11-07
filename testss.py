@@ -14,13 +14,13 @@ while(1):
     mask0 = cv2.inRange(img_hsv, lower_red, upper_red)
 
     contours, _ = cv2.findContours(mask0, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(mask0, contours, -1, (55,255,255),3)
+    cv2.drawContours(mask0, contours, -1, (55,255,255),5)
 
     gray_blurred = cv2.blur(mask0, (3, 3)) 
       
     detected_circles = cv2.HoughCircles(gray_blurred,  
-                       cv2.HOUGH_GRADIENT, 1, 120, param1 = 50, 
-                   param2 = 25, minRadius = 40, maxRadius = 60) 
+                       cv2.HOUGH_GRADIENT, 1, 120, param1 = 40, 
+                   param2 = 25, minRadius = 40, maxRadius = 65) 
       
     if detected_circles is not None: 
       
